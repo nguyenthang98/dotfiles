@@ -7,6 +7,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
+" emmet vim for html and css
+Plugin 'mattn/emmet-vim'
+
 " Code Completion
 Plugin 'valloric/youcompleteme'
 
@@ -18,6 +21,15 @@ Plugin 'yggdroot/indentline'
 
 " Git support
 Plugin 'tpope/vim-fugitive'
+
+" Vim surrounding
+Plugin 'tpope/vim-surround'
+
+" Vim commentary
+Plugin 'tpope/vim-commentary'
+
+" system copy
+Plugin 'christoomey/vim-system-copy'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,6 +66,8 @@ set ruler
 set noerrorbells
 set mouse=a
 set title
+set number
+set relativenumber
 let g:indentLine_char='¦'
 
 " Code folding options
@@ -66,3 +80,4 @@ set nofoldenable
 " disable preview window when using tab key
 set completeopt-=preview
 let g:indentLine_enabled=0
+map cm gc
