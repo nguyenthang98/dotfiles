@@ -1,40 +1,85 @@
+" =============================== Installing Vim Plug =======================
+
 set nocompatible
 filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
 
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+" Install plugins
+call plug#begin('~/.vim/plugged')
 
-" emmet vim for html and css
-Plugin 'mattn/emmet-vim'
+Plug 'morhetz/gruvbox'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'valloric/youcompleteme', { 'do': './install.py'}
+" Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim'
 
-" Code Completion
-Plugin 'valloric/youcompleteme'
+call plug#end()
+" ================================ End Vim Plug =============================
+"
+" ============================== Vundle setting up ==========================
+"
+" set nocompatible
+" filetype off
+" 
+" " set the runtime path to include Vundle and initialize
+" set rtp+=~/.vim/bundle/Vundle.vim
+" 
+" call vundle#begin()
+" Plugin 'VundleVim/Vundle.vim'
+" 
+" " emmet vim for html and css
+" Plugin 'mattn/emmet-vim'
+" 
+" " Code Completion
+" Plugin 'valloric/youcompleteme'
+" 
+" " Color scheme
+" Plugin 'altercation/vim-colors-solarized'
+" Plugin 'morhetz/gruvbox'
+" 
+" " Indent Line
+" Plugin 'yggdroot/indentline'
+" 
+" " Git support
+" Plugin 'tpope/vim-fugitive'
+" 
+" " Vim surrounding
+" Plugin 'tpope/vim-surround'
+" 
+" " Vim commentary
+" Plugin 'tpope/vim-commentary'
+" 
+" " system copy
+" Plugin 'christoomey/vim-system-copy'
+" 
+" " Nerd tree
+" " Plugin 'scrooloose/nerdtree'
+" 
+" call vundle#end()            " required
+" filetype plugin indent on    " required
+"
+" =========================== End of Vundle ========================
 
-" Color scheme
-Plugin 'altercation/vim-colors-solarized'
 
-" Indent Line
-Plugin 'yggdroot/indentline'
+" ------------------ Editor mouse setup
+if has('mouse')
+  set mouse=a
+endif
 
-" Git support
-Plugin 'tpope/vim-fugitive'
+" ------------------ Vim auto write and auto read
+set autowrite
+set autoread
 
-" Vim surrounding
-Plugin 'tpope/vim-surround'
-
-" Vim commentary
-Plugin 'tpope/vim-commentary'
-
-" system copy
-Plugin 'christoomey/vim-system-copy'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" Tab and indent
+" ------------------ Tab and indent
 set autoindent
 set shiftround
 set tabstop=4
@@ -42,25 +87,31 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
-" Search and highlight
+" ------------------ Search and highlight
 set hlsearch
 set incsearch
 set smartcase
 
-" Performance options
+" ------------------ Performance options
 set complete-=i
 set lazyredraw
 
-" Text rendering options
+" ------------------ Text rendering options
 set encoding=utf-8
 set linebreak
 syntax enable
 set wrap
 
-" User Interface Options
-set background=light
-let g:solarized_termcolors=256
-colorscheme solarized
+" ------------------ Vim gruvbox color setting
+let g:gruvbox_termcolors=256
+
+" ------------------ User Interface Options
+set background=dark
+colorscheme default
+" setting cursor line
+set cursorline
+hi CursorLine cterm=NONE ctermbg=darkgrey
+" set cursorcolumn
 set wildmenu
 set ruler
 set noerrorbells
@@ -68,16 +119,15 @@ set mouse=a
 set title
 set number
 set relativenumber
-let g:indentLine_char='¦'
 
-" Code folding options
+" ------------------ Code folding options
 set foldmethod=indent
 set foldnestmax=3
 set nofoldenable
 
-" Other options
+" ------------------ Other options
 " 
 " disable preview window when using tab key
 set completeopt-=preview
-let g:indentLine_enabled=0
+" commentary key binding
 map cm gc
