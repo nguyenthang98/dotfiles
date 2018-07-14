@@ -107,10 +107,12 @@ let g:gruvbox_termcolors=256
 
 " ------------------ User Interface Options
 set background=dark
+" colorscheme gruvbox
 colorscheme default
 " setting cursor line
 set cursorline
 hi CursorLine cterm=NONE ctermbg=darkgrey
+hi LineNr ctermbg=black
 " set cursorcolumn
 set wildmenu
 set ruler
@@ -119,6 +121,7 @@ set mouse=a
 set title
 set number
 set relativenumber
+set showcmd
 
 " ------------------ Code folding options
 set foldmethod=indent
