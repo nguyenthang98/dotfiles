@@ -13,14 +13,17 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'valloric/youcompleteme', { 'do': './install.py'}
-" Plug 'Shougo/unite.vim'
-Plug 'Shougo/denite.nvim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'mattn/emmet-vim'
+Plug 'airblade/vim-gitgutter'
+" Plug 'w0rp/ale'
 
 call plug#end()
 " ================================ End Vim Plug =============================
@@ -101,14 +104,17 @@ set encoding=utf-8
 set linebreak
 syntax enable
 set wrap
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+set nojoinspaces
 
 " ------------------ Vim gruvbox color setting
 let g:gruvbox_termcolors=256
 
 " ------------------ User Interface Options
 set background=dark
-" colorscheme gruvbox
-colorscheme default
+colorscheme gruvbox
+" colorscheme default
 " setting cursor line
 set cursorline
 hi CursorLine cterm=NONE ctermbg=darkgrey
@@ -125,7 +131,7 @@ set showcmd
 
 " ------------------ Code folding options
 set foldmethod=indent
-set foldnestmax=3
+set foldnestmax=4
 set nofoldenable
 
 " ------------------ Other options
@@ -134,3 +140,33 @@ set nofoldenable
 set completeopt-=preview
 " commentary key binding
 map cm gc
+" fzf key binding
+nmap ff :call fzf#run({
+ \  'source': 'git ls-files --exclude-standard --others --cached',
+ \  'sink': 'edit'
+ \  })<Enter>
+
+" NERDTree toggle key binding
+nmap <c-o> :NERDTreeToggle<CR>
+" Emmet vim key config
+let g:user_emmet_expandabbr_key='<Tab>'
+" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+" no swap files an backupfiles
+set noswapfile
+set nobackup
+set nowritebackup
+
+" options for ale
+" let g:ale_linters = {
+"             \ 'javascript': ['eslint'],
+"             \}
+" default disable ale
+" au VimEnter * ALEDisable
+
+" --------------------- setup for wi-angular project
+if getcwd() =~ $wiAngular
+    au VimEnter * GitGutterDisable
+    nmap <c-p> :Files source/<CR>
+    nmap <c-b> :!gulp build<CR>
+endif
