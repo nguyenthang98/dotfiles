@@ -12,7 +12,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -20,8 +20,8 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'mattn/emmet-vim'
-Plug 'w0rp/ale'
+" Plug 'mattn/emmet-vim'
+" Plug 'w0rp/ale'
 
 call plug#end()
 " ================================ End Vim Plug =============================
@@ -149,34 +149,29 @@ map cm gc
 nmap <c-p> :GitFiles<CR>
 
 " NERDTree toggle key binding
-nmap <c-o> :NERDTreeToggle<CR>
+" nmap <c-o> :NERDTreeToggle<CR>
 
 " ------------------ Emmet configurations
-" Emmet vim key config
-let g:user_emmet_expandabbr_key='<Tab>'
-" only set emmet for html and css
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+" " Emmet vim key config
+" let g:user_emmet_expandabbr_key='<Tab>'
+" " only set emmet for html and css
+" let g:user_emmet_install_global = 0
+" autocmd FileType html,css EmmetInstall
 
 " ------------------ ALE configurations
-let g:ale_close_preview_on_insert = 1
-let g:ale_completion_enabled = 1
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {
-            \   'javascript': ['eslint'],
-            \   'c': ['gcc'],
-            \   'java': ['javac']
-            \}
-let g:ale_fixers = {
-            \   'javascript': [
-            \       'eslint',
-            \       {buffer, lines -> filter(lines, 'v:val !=~ ''^\s*//''')},
-            \   ],
-            \}
-let g:ale_linters_explicit = 1
-
-" ------------------ Setup for wi-angular project
-if getcwd() =~ $wiAngular
-    nmap <c-b> :!gulp build<CR>
-endif
+" let g:ale_close_preview_on_insert = 1
+" let g:ale_completion_enabled = 1
+" let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_linters = {
+"             \   'javascript': ['eslint'],
+"             \   'c': ['gcc'],
+"             \   'java': ['javac']
+"             \}
+" let g:ale_fixers = {
+"             \   'javascript': [
+"             \       'eslint',
+"             \       {buffer, lines -> filter(lines, 'v:val !=~ ''^\s*//''')},
+"             \   ],
+"             \}
+" let g:ale_linters_explicit = 1
