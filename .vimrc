@@ -12,7 +12,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
-" Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -20,6 +20,7 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
+" Plug 'heavenshell/vim-jsdoc'
 " Plug 'mattn/emmet-vim'
 " Plug 'w0rp/ale'
 
@@ -120,8 +121,8 @@ set ruler
 set noerrorbells
 set mouse=a
 set title
-set number
-set relativenumber
+" set number
+" set relativenumber
 set showcmd
 
 " ------------------ Code folding options
@@ -147,6 +148,10 @@ map cm gc
 
 " ------------------ fzf configurations
 nmap <c-p> :GitFiles<CR>
+
+" ------------------ JsDoc Configurations
+" let g:jsdoc_allow_input_prompt=1
+" let g:jsdoc_input_description=1
 
 " NERDTree toggle key binding
 " nmap <c-o> :NERDTreeToggle<CR>
