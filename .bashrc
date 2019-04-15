@@ -150,7 +150,10 @@ export EDITOR=/usr/bin/vim
 # some global variables
 export data=/run/media/thangnguyen/Data
 export projects=$data/Projects
+
+# my current working project wi-angular
 export wi=$projects/Web/Javascript/wi-angular
+alias startwi="npm run start -- -rs -p 3000"
 
 # export JAVA_HOME=$data/Java_Linux/.java/jdk/jdk-11.0.2/
 export JAVA_HOME=$data/Java_Linux/.java/jdk/jdk1.8.0_201
