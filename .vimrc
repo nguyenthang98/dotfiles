@@ -72,16 +72,16 @@ call plug#end()
 " =========================== End of Vundle ========================
 
 
-" ------------------ Editor mouse setup
+" ======================> Editor mouse setup <===================
 if has('mouse')
   set mouse=a
 endif
 
-" ------------------ Vim auto write and auto read
+" =================> Vim auto write and auto read <==============
 set autowrite
 set autoread
 
-" ------------------ Tab and indent
+" =======================> Tab and indent <======================
 set autoindent
 set shiftround
 set tabstop=4
@@ -89,28 +89,27 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
-" ------------------ Search and highlight
+" =====================> Search and highlight <==================
 set hlsearch
 set incsearch
 set smartcase
 
-" ------------------ Performance options
+" ====================> Performance options <====================
 set complete-=i
 set lazyredraw
 
-" ------------------ Text rendering options
+" ==================> Text rendering options <===================
 set encoding=utf-8
 set linebreak
 syntax enable
 set wrap
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+set list listchars=tab:»·,trail:·,nbsp:·  "<-- visualize extra white space
 set nojoinspaces
 
-" ------------------ Vim gruvbox color setting
+" ================> Vim gruvbox color setting <==================
 let g:gruvbox_termcolors=256
 
-" ------------------ User Interface Options
+" ==================> User Interface Options <===================
 set background=dark
 colorscheme gruvbox
 set cursorline
@@ -125,45 +124,46 @@ set title
 " set relativenumber
 set showcmd
 
-" ------------------ Code folding options
+" ===================> Code folding options <====================
 set foldmethod=indent
 set foldnestmax=4
 set nofoldenable
 
-" --------------------------------- Other options
-" 
-" no swap files an backupfiles
+" ======================== Other options =========================
+" => no swap files an backupfiles <=
 set noswapfile
 set nobackup
 set nowritebackup
+" => Use system clipboard to copy and paste <=
+set clipboard=unnamedplus
+map <p> "+p
 
-" ------------------ Commentary Configurations
-" commentary key binding
+" =================> Commentary Configurations <==================
 map cm gc
 
-" ------------------ ycm configurations
+" ====================> YCM Configurations <======================
 " disable preview window when using tab key
 " set completeopt-=preview
 " let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/youcompleteme/third_party/ycmd/.ycm_extra_conf.py'
 
-" ------------------ fzf configurations
+" =====================> FZF Configurations <=====================
 nmap <c-p> :GitFiles<CR>
 
-" ------------------ JsDoc Configurations
+" =================> JsDoc Configurations <=======================
 " let g:jsdoc_allow_input_prompt=1
 " let g:jsdoc_input_description=1
 
-" NERDTree toggle key binding
-" nmap <c-o> :NERDTreeToggle<CR>
+" =================> NERDTree Configurations <====================
+nmap <c-o> :NERDTreeToggle<CR>
 
-" ------------------ Emmet configurations
+" =================> Emmet Configurations <=======================
 " " Emmet vim key config
 " let g:user_emmet_expandabbr_key='<Tab>'
 " " only set emmet for html and css
 " let g:user_emmet_install_global = 0
 " autocmd FileType html,css EmmetInstall
 
-" ------------------ ALE configurations
+" ==================> ALE configurations <========================
 " let g:ale_close_preview_on_insert = 1
 " let g:ale_completion_enabled = 1
 " let g:ale_lint_on_enter = 0
@@ -180,3 +180,5 @@ nmap <c-p> :GitFiles<CR>
 "             \   ],
 "             \}
 " let g:ale_linters_explicit = 1
+
+
