@@ -21,6 +21,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 " Plug 'heavenshell/vim-jsdoc'
+Plug 'airblade/vim-gitgutter'
+Plug 'yuttie/comfortable-motion.vim'
 " Plug 'mattn/emmet-vim'
 " Plug 'w0rp/ale'
 
@@ -92,6 +94,7 @@ set smarttab
 " =====================> Search and highlight <==================
 set hlsearch
 set incsearch
+set ignorecase
 set smartcase
 
 " ====================> Performance options <====================
@@ -107,14 +110,17 @@ set list listchars=tab:»·,trail:·,nbsp:·  "<-- visualize extra white space
 set nojoinspaces
 
 " ================> Vim gruvbox color setting <==================
-let g:gruvbox_termcolors=256
+let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_contrast_light="soft"
+let g:gruvbox_italic=1          "<-- enable italic text. especically comment
+let g:gruvbox_invert_indent_guides=1
 
 " ==================> User Interface Options <===================
 set background=dark
 colorscheme gruvbox
 set cursorline
-hi CursorLine cterm=NONE ctermbg=darkgrey
-hi LineNr ctermbg=black
+" hi CursorLine cterm=NONE ctermbg=darkgrey
+" hi LineNr ctermbg=black
 set wildmenu
 set ruler
 set noerrorbells
@@ -123,6 +129,11 @@ set title
 " set number
 " set relativenumber
 set showcmd
+
+" ===================> interactive terminal <====================
+set termwinsize=10x0
+set splitbelow
+nmap <C-t> :term<CR>
 
 " ===================> Code folding options <====================
 set foldmethod=indent
@@ -181,4 +192,17 @@ nmap <c-o> :NERDTreeToggle<CR>
 "             \}
 " let g:ale_linters_explicit = 1
 
+" =================> Git gutter Configurations <==================
+let g:gitgutter_enabled = 0   " <-- disable by default
+set updatetime=1000
+let g:gitgutter_max_signs = 1000
 
+" =================> comfortable motion Configurations <==================
+" let g:comfortable_motion_no_default_key_mappings = 1 "<-- prevent default
+"                                                                               __
+" noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>      | mouse support
+" noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>   __|
+
+" g:comfortable_motion_interval       | <- default 1000.0/60
+" g:comfortable_motion_friction       | <- default 80.0
+" g:comfortable_motion_air_drag       | <- default 2.0
