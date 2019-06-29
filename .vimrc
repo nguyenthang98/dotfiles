@@ -212,6 +212,9 @@ let g:gitgutter_max_signs = 1000
 " noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>      | mouse support
 " noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>   __|
 
+nnoremap <silent> <C-e> :call comfortable_motion#flick(40)<CR>
+nnoremap <silent> <C-y> :call comfortable_motion#flick(-40)<CR>
+
 nnoremap <silent> <PageDown> :call comfortable_motion#flick(130)<CR>
 nnoremap <silent> <PageUp> :call comfortable_motion#flick(-130)<CR>
 inoremap <PageDown> <C-o>:call comfortable_motion#flick(130)<CR>
