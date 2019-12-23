@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# A messy & pathetic script to launch rofi with xrdb colours
+# Cheers! addy
+
+getcolors () {
+    # ========================= X11 color scheme ========================== 
+	# FOREGROUND=$(xrdb -query | grep 'foreground:'| awk 'NR==1{print $NF}')
+	# BACKGROUND=$(xrdb -query | grep 'background:'| awk 'NR==1{print $NF}')
+	# BLACK=$(xrdb -query | grep 'color0:'| awk 'NR==1{print $NF}')
+	# RED=$(xrdb -query | grep 'color1:'| awk 'NR==1{print $NF}')
+	# GREEN=$(xrdb -query | grep 'color2:'| awk 'NR==1{print $NF}')
+	# YELLOW=$(xrdb -query | grep 'color3:'| awk 'NR==1{print $NF}')
+	# BLUE=$(xrdb -query | grep 'color4:'| awk 'NR==1{print $NF}')
+	# MAGENTA=$(xrdb -query | grep 'color5:'| awk 'NR==1{print $NF}')
+	# CYAN=$(xrdb -query | grep 'color6:'| awk 'NR==1{print $NF}')
+	# WHITE=$(xrdb -query | grep 'color7:'| awk 'NR==1{print $NF}')
+
+    # ======================== Termite Scheme ==============================
+	FOREGROUND=$(cat ~/.config/termite/config | grep 'foreground ='| awk 'NR==1{print $NF}')
+	BACKGROUND=$(cat ~/.config/termite/config | grep 'background ='| awk 'NR==1{print $NF}')
+	BLACK=$(cat ~/.config/termite/config | grep 'color0  ='| awk 'NR==1{print $NF}')
+	RED=$(cat ~/.config/termite/config | grep 'color1  ='| awk 'NR==1{print $NF}')
+	GREEN=$(cat ~/.config/termite/config | grep 'color2  ='| awk 'NR==1{print $NF}')
+	YELLOW=$(cat ~/.config/termite/config | grep 'color3  ='| awk 'NR==1{print $NF}')
+	BLUE=$(cat ~/.config/termite/config | grep 'color4  ='| awk 'NR==1{print $NF}')
+	MAGENTA=$(cat ~/.config/termite/config | grep 'color5  ='| awk 'NR==1{print $NF}')
+	CYAN=$(cat ~/.config/termite/config | grep 'color6  ='| awk 'NR==1{print $NF}')
+	WHITE=$(cat ~/.config/termite/config | grep 'color7  ='| awk 'NR==1{print $NF}')
+}
+
+# Only use the function above if the cache of paintmybox couldn't be found
+if [ -e ~/.cache/paintmyboxcache ]; then
+	. ~/.cache/paintmyboxcache
+	else
+	getcolors
+fi
+
+# Launch rofi with custom configuration
+rofi -show drun -sidebar-mode \
+-modi run,drun,window \
+-hide-scrollbar true \
+-bw 2 \
+-lines 12 \
+-padding 24 \
+-width 60 \
+-location 0 \
+-columns 3 \
+-font "Fira Code 9" \
+-color-enabled true \
+-color-window "$BACKGROUND,$WHITE,$BACKGROUND" \
+-color-normal "$BACKGROUND,$FOREGROUND,$BACKGROUND,$BACKGROUND,$BLUE" \
+-color-active "$BACKGROUND,$MAGENTA,$BACKGROUND,$BACKGROUND,$BLUE" \
+-color-urgent "$BACKGROUND,$YELLOW,$BACKGROUND,$BACKGROUND,$BLUE"
+
+# Theming help
+# color window = background, border, separator
+# color normal = background, foreground, background-alt, highlight-background, highlight-foreground
+# color active = background, foreground, background-alt, highlight-background, highlight-foreground
+# color urgent = background, foreground, background-alt, highlight-background, highlight-foreground

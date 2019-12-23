@@ -1,0 +1,12 @@
+#!/bin/bash
+
+rofi -sidebar-mode \
+-modi run,drun,window \
+-lines 5 \
+-show drun \
+-theme material \
+-columns 3 \
+-width 60 \
+-font "Fira Code 8"
+# -padding 18 \
+# -location 0 \
