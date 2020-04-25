@@ -3,7 +3,7 @@ function log() {
 }
 
 log "[TASK 1] install esstentials apps"
-pacman -Syu --noconfirm gvim rofi dunst conky zsh termite wget unzip
+pacman -Syu --noconfirm gvim rofi dunst conky zsh termite wget unzip i3exit i3-scrot
 
 log "[TASK 2] copy files and folders"
 yes | cp -r ./.config/* ~/.config/
