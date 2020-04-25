@@ -148,17 +148,12 @@ xset b off
 # my favourite editor
 export EDITOR=/usr/bin/vim
 # some global variables
-export data=/run/media/thangnguyen/Data
-export projects=$data/Projects
-
-# my current working project wi-angular
-export wi=$projects/Web/Javascript/wi-angular
-alias startwi="npm run start -- -rs -p 3000"
+# export data=/run/media/thangnguyen/Data
+# export projects=$data/Projects
 
 # export JAVA_HOME=$data/Java_Linux/.java/jdk/jdk-11.0.2/
-export JAVA_HOME=$data/Java_Linux/.java/jdk/jdk1.8.0_201
-
-PATH=$PATH:$JAVA_HOME/bin
-PATH=$PATH:$data/Java_Linux/.java/build_tool/gradle-5.3/bin
-PATH=$PATH:$data/Java_Linux/.java/build_tool/apache-ant-1.10.5/bin
-PATH=$PATH:$data/Java_Linux/.java/build_tool/apache-maven-3.6.0/bin
+# export JAVA_HOME=$data/Java_Linux/.java/jdk/jdk1.8.0_201
+# PATH=$PATH:$JAVA_HOME/bin
+# PATH=$PATH:$data/Java_Linux/.java/build_tool/gradle-5.3/bin
+# PATH=$PATH:$data/Java_Linux/.java/build_tool/apache-ant-1.10.5/bin
+# PATH=$PATH:$data/Java_Linux/.java/build_tool/apache-maven-3.6.0/bin
