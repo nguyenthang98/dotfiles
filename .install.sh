@@ -15,6 +15,13 @@ yes | cp ./.bashrc ~/
 yes | cp ./.zshrc ~/
 yes | cp ./.vimrc ~/
 
+cat <<EOF >/usr/bin/rofi-apps
+#!/bin/sh
+
+rofi -show run
+EOF
+chmod +x /usr/bin/rofi-apps
+
 log "[TASK 3] install fonts"
 mkdir -p tmp
 pushd tmp
